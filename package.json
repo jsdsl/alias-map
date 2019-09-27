@@ -1,7 +1,7 @@
 {
-	"name": "<name>",
+	"name": "@jsdsl/alias-map",
 	"version": "0.1.0",
-	"description": "<desc>",
+	"description": "A map where multiple keys point to a single value, and the removal of a single key removes all matching key-value pairs.",
 	"main": "js/main",
 	"types": ".d.ts/main",
 	"scripts": {
@@ -10,15 +10,23 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/<github_org>/<base_name>.git"
+		"url": "git+https://github.com/jsdsl/alias-map.git"
 	},
-	"keywords": [],
+	"keywords": [
+		"alias",
+		"nickname",
+		"multimap",
+		"multikey",
+		"map",
+		"data-structure",
+		"adt"
+	],
 	"author": "Trevor Sears <trevorsears.main@gmail.com> (http://trevorsears.io/)",
 	"license": "GPL-3.0-or-later",
 	"bugs": {
-		"url": "https://github.com/<github_org>/<base_name>/issues"
+		"url": "https://github.com/jsdsl/alias-map/issues"
 	},
-	"homepage": "https://github.com/<github_org>/<base_name>#readme",
+	"homepage": "https://github.com/jsdsl/alias-map#readme",
 	"devDependencies": {
 		"typescript": "latest",
 		"tslint": "latest",
@@ -29,5 +37,6 @@
 		"gulp-typescript": "latest",
 		"gulp-uglify-es": "latest",
 		"jest": "latest"
-	}
+	},
+	"dependencies": {}
 }

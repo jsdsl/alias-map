@@ -8,6 +8,18 @@ A map where multiple keys point to a single value, and the removal of a single k
  - [Installation](#installation)
  - [Basic Usage](#basic-usage)
  - [Documentation](#documentation)
+   - [constructor](#constructor)
+   - [#get](#get)
+   - [#set](#set)
+   - [#addAliases](#addaliases)
+   - [#has](#has)
+   - [#modify](#modify)
+   - [#removeAlias](#removealias)
+   - [#removeValue](#removevalue)
+   - [#listAliases](#listaliases)
+   - [#numberOfAliasesFor](#numberofaliasesfor)
+   - [#size](#size)
+   - [#clear](#clear)
  - [License](#license) 
 
 ## Installation
@@ -123,9 +135,17 @@ aliasMap.clear();
 
 #### `constructor`
 
-Initialization is done with an empty constructor.
+Initialization is done with an no-arguments call to the constructor.
+
+The first generic argument corresponds to the type of the keys/aliases for the map, while the second generic argument corresponds with the type of the values for the map.
+
+**Parameters**:
+ - _None_.
+
+**Returns** A newly initialized, empty AliasMap.
+
 ```typescript
-let aliasMap: AliasMap<T1, T2> = new AliasMap<T1, T2>();
+let aliasMap: AliasMap<AliasType, ValueType> = new AliasMap<AliasType, ValueType>();
 ```
 
 ---
@@ -134,7 +154,7 @@ let aliasMap: AliasMap<T1, T2> = new AliasMap<T1, T2>();
 
 Returns the value associated with a given alias, or undefined if the alias does not exist in the map.
 
-_Parameters_:
+**Parameters**:
  - **key** An alias for which a value should be retrieved.
 
 **Returns** The value associated with the provided alias, or undefined if the alias does not exist in the map.
@@ -151,7 +171,7 @@ Associates the provided alias with the provided value, returning true if and onl
 
 Note that this method returning 'true' does not necessarily mean that the internal state of the map was modified, as it is possible that the provided key-value pair already to have existed. As such, the return condition of this method was satisfied and the method therefore returned true.
 
-_Parameters_:
+**Parameters**:
  - **key** An alias to associate with the provided value.
  - **value** A value to associate with the provided alias.
  - **force** true if the key-value pair should be forcibly set, potentially requiring the removal of the provided alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
@@ -168,7 +188,7 @@ public set(key: A, value: V, force: boolean = false): boolean { ... }
 
 Adds an alias to an existing value via an existing alias, returning true if and only if, after this operation, calling `AliasMap#get` with the provided alias will return the value provided.
 
-_Parameters_:
+**Parameters**:
  - **existingKey** An existing alias in this map.
  - **newKey** A new alias that should be associated with the value of the existing alias.
  - **force** true if the alias should be forcibly set, potentially requiring the removal of the provided new alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
@@ -185,7 +205,7 @@ public addAliases(existingKey: A, newKey: A, force: boolean = false): boolean { 
 
 Returns true if the provided alias has an associated value in this map.
 
-_Parameters_:
+**Parameters**:
  - **key** An alias to check for an associated value.
 
 **Returns** true if the provided alias has an associated value in this map.
@@ -200,7 +220,7 @@ public has(key: A): boolean { ... }
 
 Modifies the value of a given alias and all of it's associated aliases, returning the value that was displaced or undefined if the provided alias did not exist in the map.
 
-_Parameters_:
+**Parameters**:
  - **key** An alias for which it's associated value should be modified.
  - **value** The value that should replaced the existing value of the provided alias.
 
@@ -218,7 +238,7 @@ Attempts to remove an alias from this map, returning the value associated with t
 
 Note that the removal of the last existing alias for a given value implies the removal of the value from the map.
 
-_Parameters_:
+**Parameters**:
  - **key** The alias that should be removed from the map.
 
 **Returns** The value associated with the removed alias if one existed, otherwise undefined.
@@ -235,7 +255,7 @@ Attempts to remove the value that is associated with the provided alias from the
 
 Note that this implies the removal of all of the aliases for the removed value.
 
-_Parameters_:
+**Parameters**:
  - **key** The alias for which its associated value should be removed from the map.
 
 **Returns** The value that was removed from the map if one existed, otherwise undefined.
@@ -252,7 +272,7 @@ Returns an array of aliases associated with the provided input alias, or undefin
 
 A second parameter, a boolean, can be set, determining whether or not the input alias should be included in the returned array of aliases. If a truthy value is provided, the input alias will be included, otherwise the input alias will be removed from the returned array. Note that if a truthy value is provided, this method is operates in O(1) time, whereas if a falsy value is provided, this method runs in O(k) time where k is the number of aliases associated with the input alias.
 
-_Parameters_:
+**Parameters**:
  - **alias** The alias for which to return associated aliases.
  - **includeProvidedAlias** true if the input alias should be included in the returned array of aliases. Defaults to true.
 
@@ -270,7 +290,7 @@ Returns the number of aliases that exist in the map for the input alias, or zero
  
 A second parameter, a boolean, can be set, determining whether or not the input alias should be counted in the returned value. Although this method internally uses `AliasMap#listAliases`, and despite the O(k) nature of the aforementioned method, this second parameter will not change the running speed of this method, which will always be O(1).
 
-_Parameters_:
+**Parameters**:
  - **alias** The alias for which to return a count of equivalent aliases.
  - **includeProvidedAlias** true if the input alias should be counted in the returned value.
  
@@ -288,7 +308,7 @@ Returns the number of values stored in this map.
 
 Note that the value that this method returns is in no way associated with the number of aliases that exist for any given value within the map.
 
-_Parameters_:
+**Parameters**:
  - _None_
 
 **Returns** The number of values stored in this map.
@@ -303,7 +323,7 @@ public size(): number { ... }
 
 Resets this map to an empty state, removing all of its stored key-value pairs.
 
-_Parameters_:
+**Parameters**:
  - _None_
  
 **Returns** Void.

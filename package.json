@@ -2,6 +2,9 @@
 	"name": "@jsdsl/alias-map",
 	"version": "0.1.0",
 	"description": "A map where multiple keys point to a single value, and the removal of a single key removes all matching key-value pairs.",
+	"publishConfig": {
+		"access": "public"
+	},
 	"main": "js/main",
 	"types": ".d.ts/main",
 	"scripts": {

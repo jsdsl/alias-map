@@ -176,7 +176,7 @@ Note that this method returning 'true' does not necessarily mean that the intern
  - **value** A value to associate with the provided alias.
  - **force** true if the key-value pair should be forcibly set, potentially requiring the removal of the provided alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
 
-**Returns** true if and only if, after this operation, calling {@link AliasMap#get} with the provided alias will return the value provided.
+**Returns** true if and only if, after this operation, calling `AliasMap#get` with the provided alias will return the value provided.
 
 ```typescript
 public set(key: A, value: V, force: boolean = false): boolean { ... }
@@ -193,7 +193,7 @@ Adds an alias to an existing value via an existing alias, returning true if and 
  - **newKey** A new alias that should be associated with the value of the existing alias.
  - **force** true if the alias should be forcibly set, potentially requiring the removal of the provided new alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
 
-**Returns** true if and only if, after this operation, calling {@link AliasMap#get} with the provided alias will return the value provided.
+**Returns** true if and only if, after this operation, calling `AliasMap#get` with the provided alias will return the value provided.
 
 ```typescript
 public addAliases(existingKey: A, newKey: A, force: boolean = false): boolean { ... }

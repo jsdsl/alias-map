@@ -174,7 +174,7 @@ Note that this method returning 'true' does not necessarily mean that the intern
 **Parameters**:
  - **key** An alias to associate with the provided value.
  - **value** A value to associate with the provided alias.
- - **force** true if the key-value pair should be forcibly set, potentially requiring the removal of the provided alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
+ - **force** true if the key-value pair should be forcibly set, potentially requiring the removal of the provided alias as an alias for another value, and therefore potentially causing the removal of a value. Optional - Defaults to false.
 
 **Returns** true if and only if, after this operation, calling `AliasMap#get` with the provided alias will return the value provided.
 
@@ -191,7 +191,7 @@ Adds an alias to an existing value via an existing alias, returning true if and 
 **Parameters**:
  - **existingKey** An existing alias in this map.
  - **newKey** A new alias that should be associated with the value of the existing alias.
- - **force** true if the alias should be forcibly set, potentially requiring the removal of the provided new alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
+ - **force** true if the alias should be forcibly set, potentially requiring the removal of the provided new alias as an alias for another value, and therefore potentially causing the removal of a value. Optional - Defaults to false.
 
 **Returns** true if and only if, after this operation, calling `AliasMap#get` with the provided alias will return the value provided.
 
@@ -274,7 +274,7 @@ A second parameter, a boolean, can be set, determining whether or not the input 
 
 **Parameters**:
  - **alias** The alias for which to return associated aliases.
- - **includeProvidedAlias** true if the input alias should be included in the returned array of aliases. Defaults to true.
+ - **includeProvidedAlias** true if the input alias should be included in the returned array of aliases. Optional - Defaults to true.
 
 **Returns** An array of aliases that are associated/equivalent to the provided input alias.
 
@@ -292,7 +292,7 @@ A second parameter, a boolean, can be set, determining whether or not the input 
 
 **Parameters**:
  - **alias** The alias for which to return a count of equivalent aliases.
- - **includeProvidedAlias** true if the input alias should be counted in the returned value.
+ - **includeProvidedAlias** true if the input alias should be counted in the returned value. Optional - Defaults to true.
  
 **Returns** The number of aliases that exist in the map for the input alias, or zero if the alias does not exist within the map.
 

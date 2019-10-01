@@ -1,7 +1,7 @@
 /*
  *	Created by Trevor Sears <trevorsears.main@gmail.com>.
  *	4:25 PM -- September 18th, 2019.
- *	Project: alias-map
+ *	Project: @jsdsl/alias-map
  */
 
 /**
@@ -83,7 +83,8 @@ export class AliasMap<A = any, V = any> {
 	 * @param key An alias to associate with the provided value.
 	 * @param value A value to associate with the provided alias.
 	 * @param force true if the key-value pair should be forcibly set, potentially requiring the removal of the provided
-	 * alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
+	 * alias as an alias for another value, and therefore potentially causing the removal of a value. Optional! Defaults
+	 * to false.
 	 * @return true if and only if, after this operation, calling {@link AliasMap#get} with the provided alias will
 	 * return the value provided.
 	 */
@@ -117,7 +118,8 @@ export class AliasMap<A = any, V = any> {
 	 * @param existingKey An existing alias in this map.
 	 * @param newKey A new alias that should be associated with the value of the existing alias.
 	 * @param force true if the alias should be forcibly set, potentially requiring the removal of the provided new
-	 * alias as an alias for another value, and therefore potentially causing the removal of a value. Defaults to false.
+	 * alias as an alias for another value, and therefore potentially causing the removal of a value. Optional! Defaults
+	 * to false.
 	 * @return true if and only if, after this operation, calling {@link AliasMap#get} with the provided alias will
 	 * return the value provided.
 	 */
@@ -247,8 +249,8 @@ export class AliasMap<A = any, V = any> {
 	 * aliases associated with the input alias.
 	 *
 	 * @param alias The alias for which to return associated aliases.
-	 * @param includeProvidedAlias true if the input alias should be included in the returned array of aliases. Defaults
-	 * to true.
+	 * @param includeProvidedAlias true if the input alias should be included in the returned array of aliases.
+	 * Optional! Defaults to true.
 	 * @return An array of aliases that are associated/equivalent to the provided input alias.
 	 */
 	public listAliases(alias: A, includeProvidedAlias: boolean = true): A[] | undefined {
@@ -284,7 +286,8 @@ export class AliasMap<A = any, V = any> {
 	 * always be O(1).
 	 *
 	 * @param alias The alias for which to return a count of equivalent aliases.
-	 * @param includeProvidedAlias true if the input alias should be counted in the returned value.
+	 * @param includeProvidedAlias true if the input alias should be counted in the returned value. Optional! Defaults
+	 * to true.
 	 * @return The number of aliases that exist in the map for the input alias, or zero if the alias does not exist
 	 * within the map.
 	 */

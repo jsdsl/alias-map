@@ -1,6 +1,6 @@
 {
 	"name": "@jsdsl/alias-map",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A map where multiple keys point to a single value, and the removal of a single key removes all matching key-value pairs.",
 	"publishConfig": {
 		"access": "public"
@@ -40,6 +40,5 @@
 		"gulp-typescript": "latest",
 		"gulp-uglify-es": "latest",
 		"jest": "latest"
-	},
-	"dependencies": {}
+	}
 }

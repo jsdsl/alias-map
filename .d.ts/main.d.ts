@@ -1,1 +1,1 @@
-
+export {} from "alias-map";

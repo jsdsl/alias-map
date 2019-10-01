@@ -12,4 +12,4 @@
  * @since v0.1.0
  */
 
-// export { ClassName } from "./class-location";
+export { AliasMap } from "alias-map";

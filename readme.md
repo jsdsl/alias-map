@@ -8,18 +8,18 @@ A map where multiple keys point to a single value, and the removal of a single k
  - [Installation](#installation)
  - [Basic Usage](#basic-usage)
  - [Documentation](#documentation)
-   - [constructor](#constructor)
-   - [#get](#get)
-   - [#set](#set)
-   - [#addAliases](#addaliases)
-   - [#has](#has)
-   - [#modify](#modify)
-   - [#removeAlias](#removealias)
-   - [#removeValue](#removevalue)
-   - [#listAliases](#listaliases)
-   - [#numberOfAliasesFor](#numberofaliasesfor)
-   - [#size](#size)
-   - [#clear](#clear)
+   - [`constructor`](#constructor)
+   - [`#get`](#get)
+   - [`#set`](#set)
+   - [`#addAliases`](#addaliases)
+   - [`#has`](#has)
+   - [`#modify`](#modify)
+   - [`#removeAlias`](#removealias)
+   - [`#removeValue`](#removevalue)
+   - [`#listAliases`](#listaliases)
+   - [`#numberOfAliasesFor`](#numberofaliasesfor)
+   - [`#size`](#size)
+   - [`#clear`](#clear)
  - [License](#license) 
 
 ## Installation
@@ -108,12 +108,9 @@ We can choose to either remove singular aliases or entire values (which implies 
 aliasMap.removeAlias("cow"); // --> moo
 aliasMap.removeValue("hog"); // --> oink
 
-/* The map now has the current state:
- *
- * "bovine"               --> "moo"
- *
- * The "oink" value no longer exists in the map.
- */
+// The "oink" value no longer exists in the map.
+// The map now only holds one key-value pair:
+// "bovine" --> "moo"
 ```
 
 If we continue to remove all of the aliases for a given value, the value will be automatically removed from the map as well.
@@ -127,8 +124,8 @@ aliasMap.removeAlias("bovine");               // --> moo
 If we ever want to completely 'empty' the map, we can use the `#clear` operation.
 
 ```typescript
+// The map is actually already empty, but for good measure...
 aliasMap.clear();
-// Map is now empty.
 ```
 
 ## Documentation
@@ -137,12 +134,16 @@ aliasMap.clear();
 
 Initialization is done with an no-arguments call to the constructor.
 
-The first generic argument corresponds to the type of the keys/aliases for the map, while the second generic argument corresponds with the type of the values for the map.
-
 **Parameters**:
  - _None_.
 
 **Returns** A newly initialized, empty AliasMap.
+
+```typescript
+public constructor() { ... }
+```
+
+The first generic argument corresponds to the type of the keys/aliases for the map, while the second generic argument corresponds with the type of the values for the map.
 
 ```typescript
 let aliasMap: AliasMap<AliasType, ValueType> = new AliasMap<AliasType, ValueType>();
@@ -174,7 +175,7 @@ Note that this method returning 'true' does not necessarily mean that the intern
 **Parameters**:
  - **key** An alias to associate with the provided value.
  - **value** A value to associate with the provided alias.
- - **force** true if the key-value pair should be forcibly set, potentially requiring the removal of the provided alias as an alias for another value, and therefore potentially causing the removal of a value. Optional - Defaults to false.
+ - **force** true if the key-value pair should be forcibly set, potentially requiring the removal of the provided alias as an alias for another value, and therefore potentially causing the removal of a value. Optional - defaults to false.
 
 **Returns** true if and only if, after this operation, calling `AliasMap#get` with the provided alias will return the value provided.
 
@@ -191,7 +192,7 @@ Adds an alias to an existing value via an existing alias, returning true if and 
 **Parameters**:
  - **existingKey** An existing alias in this map.
  - **newKey** A new alias that should be associated with the value of the existing alias.
- - **force** true if the alias should be forcibly set, potentially requiring the removal of the provided new alias as an alias for another value, and therefore potentially causing the removal of a value. Optional - Defaults to false.
+ - **force** true if the alias should be forcibly set, potentially requiring the removal of the provided new alias as an alias for another value, and therefore potentially causing the removal of a value. Optional - defaults to false.
 
 **Returns** true if and only if, after this operation, calling `AliasMap#get` with the provided alias will return the value provided.
 
@@ -274,7 +275,7 @@ A second parameter, a boolean, can be set, determining whether or not the input 
 
 **Parameters**:
  - **alias** The alias for which to return associated aliases.
- - **includeProvidedAlias** true if the input alias should be included in the returned array of aliases. Optional - Defaults to true.
+ - **includeProvidedAlias** true if the input alias should be included in the returned array of aliases. Optional - defaults to true.
 
 **Returns** An array of aliases that are associated/equivalent to the provided input alias.
 
@@ -292,7 +293,7 @@ A second parameter, a boolean, can be set, determining whether or not the input 
 
 **Parameters**:
  - **alias** The alias for which to return a count of equivalent aliases.
- - **includeProvidedAlias** true if the input alias should be counted in the returned value. Optional - Defaults to true.
+ - **includeProvidedAlias** true if the input alias should be counted in the returned value. Optional - defaults to true.
  
 **Returns** The number of aliases that exist in the map for the input alias, or zero if the alias does not exist within the map.
 

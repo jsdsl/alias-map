@@ -99,7 +99,7 @@ aliasMap.numberOfAliasesFor("piglet"); // --> 3
 Finding the size of the map is fairly straight-forward, returning the number of values that a given map holds (NOT the number of aliases).
 
 ```typescript
-aliasMap.size("cow"); // --> 2
+aliasMap.size(); // --> 2
 ```
 
 We can choose to either remove singular aliases or entire values (which implies the removal of all of the aliases for the given value).
